@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 function Clock() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -13,37 +14,61 @@ function Clock() {
   }, []);
 
   return (
-    <Box sx={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center',
-      minHeight: 'calc(100vh - 64px)',
-      p: 2
-    }}>
-      <Paper sx={{ 
-        p: 4, 
-        textAlign: 'center',
-        background: 'linear-gradient(45deg, #D42426 30%, #FF4B4B 90%)',
-        borderRadius: 2,
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        color: 'white',
-        width: '100%',
-        maxWidth: 400
-      }}>
-        <Typography variant="h2" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>
-          {currentTime.toLocaleTimeString('tr-TR')}
-        </Typography>
-        <Typography variant="h5" component="div">
-          {currentTime.toLocaleDateString('tr-TR', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        backgroundColor: 'black',
+      }}
+    >
+      {/* Dijital saat tasarımı */}
+      <Box
+        sx={{
+          position: 'relative',
+          padding: 3,
+          backgroundColor: '#222',
+          color: '#fff',
+          borderRadius: 2,
+          width: '300px',
+          textAlign: 'center',
+          boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+        }}
+      >
+        {/* Günler */}
+        <Box sx={{ textAlign: 'left', position: 'absolute', top: 8, left: 16 }}>
+          {daysOfWeek.map((day, index) => (
+            <Typography
+              key={index}
+              sx={{
+                fontSize: '12px',
+                fontWeight: 'bold',
+                color: currentTime.getDay() === index ? '#fff' : '#555',
+              }}
+            >
+              {day}
+            </Typography>
+          ))}
+        </Box>
+
+        {/* Saat */}
+        <Typography
+          sx={{
+            fontSize: '72px',
+            fontFamily: "'DS-Digital', sans-serif",
+            margin: 0,
+            lineHeight: 1,
+          }}
+        >
+          {currentTime.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
           })}
         </Typography>
-      </Paper>
+      </Box>
     </Box>
   );
 }
 
-export default Clock; 
+export default Clock;

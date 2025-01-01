@@ -8,7 +8,11 @@ function Home() {
 
   return (
     <>
-      <Snowfall />
+      <Snowfall 
+        frequency={120} 
+        colors={['#ffffff', '#cce7ff', '#ffcccc']} 
+        sizeRange={[10, 25]} 
+      />
       <Container 
         maxWidth="md" 
         sx={{ 
@@ -17,11 +21,12 @@ function Home() {
           minHeight: '80vh',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Paper
-          elevation={0}
+          elevation={6}
           className="christmas-card"
           sx={{
             p: { xs: 3, sm: 6 },
@@ -29,6 +34,8 @@ function Home() {
             borderRadius: '24px',
             position: 'relative',
             overflow: 'hidden',
+            background: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)',
+            boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.15)',
           }}
         >
           <Typography 
@@ -39,7 +46,8 @@ function Home() {
               fontWeight: 800,
               fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
               mb: 2,
-              position: 'relative',
+              color: '#0d47a1',
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.3)',
               '&::before': {
                 content: '"🎄 "',
               },
@@ -51,27 +59,26 @@ function Home() {
             Noel Özel
           </Typography>
           <Typography 
-            variant="h3" 
+            variant="h4" 
             component="h2"
-            className="christmas-title"
             sx={{
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
               mb: 4,
+              color: '#0d47a1',
             }}
           >
             Ders Çalışma Programı
           </Typography>
           <Typography 
-            variant="h6"
-            component="p"
-            className="christmas-text"
+            variant="body1"
             sx={{ 
               mb: 6,
               opacity: 0.9,
               maxWidth: '600px',
               mx: 'auto',
               lineHeight: 1.8,
+              color: '#37474f',
             }}
           >
             Yeni yıla özel hazırlanmış ders çalışma programları ile başarıya ulaşın! 
@@ -90,6 +97,11 @@ function Home() {
                 fontWeight: 600,
                 textTransform: 'none',
                 minWidth: '200px',
+                backgroundColor: '#0d47a1',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#1565c0',
+                },
               }}
             >
               Program Oluştur ⭐
@@ -106,6 +118,11 @@ function Home() {
                 fontWeight: 600,
                 textTransform: 'none',
                 minWidth: '200px',
+                backgroundColor: '#0d47a1',
+                color: '#fff',
+                '&:hover': {
+                  backgroundColor: '#1565c0',
+                },
               }}
             >
               Hazır Programlar 🎁
@@ -119,6 +136,7 @@ function Home() {
               transform: 'translateX(-50%)',
               fontSize: '40px',
               opacity: 0.2,
+              pointerEvents: 'none',
             }}
           >
             ❄️❄️❄️
@@ -129,4 +147,4 @@ function Home() {
   );
 }
 
-export default Home; 
+export default Home;
