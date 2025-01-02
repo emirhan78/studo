@@ -1,0 +1,29 @@
+.christmas-navbar {
+  background: linear-gradient(135deg, #d42426 0%, #a60e1c 100%) !important; /* Noel kırmızısı geçiş */
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.8) !important; /* Hafif beyaz gölge */
+  border-bottom: 4px solid #fff !important; /* Beyaz alt çizgi ile ayrım */
+}
+
+.christmas-nav-button {
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  border-radius: 12px !important; /* Daha yuvarlak köşeler */
+  transition: all 0.3s ease !important;
+  text-transform: none !important;
+  font-size: 1rem !important;
+  background-color: rgba(255, 255, 255, 0.15) !important; /* Yarı saydam beyaz arka plan */
+  color: #fff !important; /* Beyaz yazı rengi */
+  border: 1px solid rgba(255, 255, 255, 0.5) !important; /* Yarı saydam beyaz kenarlık */
+}
+
+.christmas-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important; /* Daha yoğun beyaz arka plan */
+  color: #d42426 !important; /* Noel kırmızısı yazı rengi */
+  transform: translateY(-2px) !important; /* Hafif yukarı hareket efekti */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.6) !important; /* Hafif parlama gölgesi */
+}
+
+.christmas-nav-button:active {
+  transform: translateY(0) !important; /* Aktif durum için geri dönüş */
+  box-shadow: none !important; /* Gölgeyi kaldır */
+}
