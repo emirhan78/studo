@@ -7,18 +7,13 @@ export default defineConfig({
   base: '/studo/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
+    emptyOutDir: true,
     sourcemap: false,
     minify: 'terser',
     rollupOptions: {
-      input: {
-        main: './index.html',
-      },
       output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].[hash].js',
-        assetFileNames: '[name].[ext]'
-      },
-    },
+        manualChunks: undefined
+      }
+    }
   },
 });
